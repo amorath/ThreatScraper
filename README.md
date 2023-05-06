@@ -1,4 +1,4 @@
-# ThreatScraper - Python Script
+# ThreatScraper.py - Python Script
 
 ThreatScraper is being developed in Python to interface with VirusTotal's v2 API to search their database for a file hash (SHA256/SHA1/MD5), and if a match is found the report data is sent back to the requestor. The information sent back contains 70 different Anti Virus products, with their individual findings on the file (malicious or not), the version and date of the Anti Virus definitions, and what individual naming convention the Anti Virus service uses for the specific file requested (trojan, worm, keylogger, etc). The information is stored in an excel file, and can be scheduled to run multiple times during the day. The program is very much in development, however the ThreatScraper.py script is a working prototype.
 
@@ -13,7 +13,7 @@ ThreatScraper is being developed in Python to interface with VirusTotal's v2 API
 5. Save and close. In a command prompt, run the script with "python ThreatScraper.py".
 
 
-# ThreatScraper - .exe build instructions:
+# ThreatScraperUI.py - .exe build instructions:
 
 Install PyInstaller: You can install PyInstaller using pip by running the following command in your terminal:
 
@@ -34,3 +34,7 @@ This will create a dist directory containing the standalone executable for your 
 Note: Building a Python executable using pyinstaller will most likely cause it to be identified as malware. If this is the route you want to take, you may have to exclude the created file from Microsoft Defender's scans. 
 
 https://www.techtarget.com/searchsecurity/news/252500274/Researchers-use-PyInstaller-to-create-stealth-malware
+
+# ThreatScraper.cpp - Work in Progress
+
+I am currently attempting to convert ThreatScraper into C++ to get around the issues that Windows Defender has with compiling Python code into executables.
