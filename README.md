@@ -30,3 +30,7 @@ Build the executable: Once you have a spec file, you can build the executable by
 C:\ pyinstaller ThreatScraper.spec
 
 This will create a dist directory containing the standalone executable for your application.
+
+Note: Building a Python executable using pyinstaller will most likely cause it to be identified as malware. If this is the route you want to take, you may have to exclude the created file from Microsoft Defender's scans. 
+
+https://www.techtarget.com/searchsecurity/news/252500274/Researchers-use-PyInstaller-to-create-stealth-malware
