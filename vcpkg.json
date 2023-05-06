@@ -1,0 +1,10 @@
+{
+    "name": "threatscraper",
+    "version-string": "0.1.0",
+    "dependencies": [
+      "nlohmann-json",
+      "curl",
+      "qt5-base",
+      "xlnt"
+    ]
+  }

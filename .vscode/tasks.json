@@ -1,0 +1,34 @@
+
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "qmake",
+                "type": "shell",
+                "command": "C:/Qt/5.15.2/mingw81_64/bin/qmake.exe",
+                "args": [
+                    "${workspaceFolder}/ThreatScraper.cpp"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "reveal": "always"
+                }
+            },
+            {
+                "label": "make",
+                "type": "shell",
+                "command": "mingw32-make",
+                "dependsOn": "qmake",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "reveal": "always"
+                }
+            }
+        ]
+    }
