@@ -88,7 +88,7 @@ class App:
         self.filename_entry.grid(row=2, column=1)
 
         # Create time entry
-        self.time_label = tk.Label(master, text='Schedule Time (HH:MM):')
+        self.time_label = tk.Label(master, text='Schedule Times (HH:MM) Separated by comma:')
         self.time_label.grid(row=3, column=0)
         self.time_entry = tk.Entry(master, width=50)
         self.time_entry.grid(row=3, column=1)
@@ -127,8 +127,34 @@ class App:
         vt_checker.check_virustotal()
 
     def start_schedule(self):
-        # Get schedule time from entry
-        schedule_time = self.time_entry.get()
+        # Get schedule times from entry
+        schedule_times = self.time_entry.get().split(',')
+
+        # Disable start button and enable stop button
+        self.start_button.configure(state='disabled')
+        self.stop_button.configure(state='normal')
+
+        # Loop through schedule times and schedule checks
+        for schedule_time in schedule_times:
+            # Check if time is valid
+            try:
+                datetime.datetime.strptime(schedule_time.strip(), '%H:%M')
+            except ValueError:
+                messagebox.showerror('Invalid Time', f'{schedule_time} is not a valid time. Please enter a valid time in HH:MM format')
+                return
+
+            # Schedule daily check at this time
+            schedule.every().day.at(schedule_time.strip()).do(self.check_virustotal)
+
+        # Set schedule_running to True
+        self.schedule_running = True
+
+        # Update console window
+        self.console_output.write('Schedule started\n')
+
+        # Start schedule thread
+        self.schedule_thread = threading.Thread(target=self.run_schedule, daemon=True)
+        self.schedule_thread.start()
 
         # Check if time is valid
         try:
