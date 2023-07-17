@@ -1,6 +1,6 @@
 # ThreatScraper
 
-ThreatScraper is a Python-based tool designed to check virus information by using VirusTotal API. It offers functionalities such as scheduling the checking at specific times, showing and saving the graph of malware detection trends, as well as saving virus information to an Excel file.
+ThreatScraper is a Python-based tool designed to check virus information by using VirusTotal API. It offers functionalities such as scheduling the checking at specific times, showing and saving the graph of malware detection trends, as well as saving virus information to an Excel file. The Excel file "Toxicember.xlsx" is an example file that can be used to test the program, and also to show how a typical scheduled report will be displayed.
 
 This version of ThreatScraper has been enhanced to use `poetry` for dependency management, and to use `black` and `isort` for code formatting.
 
