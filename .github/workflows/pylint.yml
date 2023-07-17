@@ -1,0 +1,22 @@
+name: Pylint
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: psf/black@23.1.0
+    - uses: isort/isort-action@master
+    - name: Run ruff
+      run: |
+        pip install ruff
+        ruff .
+  matrix-prep-config:
+    runs-on: ubuntu-latest
+    steps:
+        run: |
+          echo "config={\"python-version\": [\"3.10\", \"3.11\"]}" >> $GITHUB_OUTPUT
+    outputs:
+      config: steps.outputs.config
