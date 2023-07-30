@@ -10,10 +10,11 @@ Before you begin, ensure you have installed:
 
 - Python 3.8 or higher
 - Poetry package manager
+- Visual C++ Redistributable Packages for Visual Studio 2015, 2017, and 2019
 
-## Installing ThreatScraperEdit
+## Installing ThreatScraper
 
-To install ThreatScraperEdit and its dependencies, follow these steps:
+To install ThreatScraper and its dependencies, follow these steps:
 
 1. Clone the repository:
 ```bash
